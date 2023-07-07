@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gifgle</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Product Sans">
+  <style>
+    img {
+      display: none;
+      width: max(50vw, 50vh);
+      aspect-ratio: 1;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    span {
+      font-size: max(6vh, 6vw);
+      font-family: 'Product Sans';
+    }
+
+    input,
+    button {
+      font-size: 2vh;
+      padding: 10px;
+    }
+
+    input {
+      border-radius: 20px;
+      border: solid 1px lightgray;
+    }
+
+    button {
+      border: none;
+      background-color: rgba(249, 249, 249, 0.778);
+      border-radius: 5px;
+      width: 40%
+    }
+
+    #first-letter {
+      font-size: max(8vh, 8vw);
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .heading {
+      cursor: pointer;
+    }
+
+    #controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="heading">
+      <span id="first-letter" style="color: rgb(0, 123, 255);">G</span>
+      <span style="color: rgb(255, 30, 0);">i</span>
+      <span style="color: rgb(255, 191, 0);">f</span>
+      <span style="color: rgb(0, 123, 255);">g</span>
+      <span style="color: rgb(0, 155, 21);">l</span>
+      <span style="color: rgb(255, 30, 0);">e</span>
+    </div>
+    <div id="controls">
+      <input type="text">
+      <button>Gif Me</button>
+    </div>
+  </div>
+  <img src="#">
+
+  <script>
+    const img = document.querySelector('img');
+    const button = document.querySelector('button');
+    const search = document.querySelector('input');
+    const div = document.querySelector('.wrapper');
+    const controls = document.querySelector('#controls');
+    const spans = document.querySelectorAll('span');
+    const first = document.querySelector('#first-letter');
+    const heading = document.querySelector('.heading');
+    let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
+
+    button.addEventListener('click', () => {
+      if (search.value === '') return;
+      url = `https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=${search.value}`;
+      fetch(url, { mode: 'cors' })
+        .then(response => response.json())
+        .then(response => img.src = response.data.images.original.url)
+        .then(landscape);
+    })
+    function landscape() {
+      img.style.display = 'block';
+      spans.forEach(span => span.style.fontSize = '40px');
+      first.style.fontSize = '50px';
+      div.style.cssText = 'flex-direction:row';
+      controls.style.cssText = 'margin-top:15px; flex-direction: row;'
+    }
+    heading.addEventListener('click', () => {
+      location.reload();
+    })
+  </script>
+</body>
+
+</html>
