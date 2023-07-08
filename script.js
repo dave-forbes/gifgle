@@ -8,17 +8,23 @@ const first = document.querySelector('#first-letter');
 const heading = document.querySelector('.heading');
 const body = document.querySelector('body');
 const icon = document.querySelector('i');
+const errorText = document.querySelector('#error')
 let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
 
 button.addEventListener('click', getGif);
 
 function getGif() {
-  if (search.value === '') return;
+  errorText.textContent = '';
   url = `https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=${search.value}`;
   fetch(url, { mode: 'cors' })
     .then(response => response.json())
     .then(response => img.src = response.data.images.original.url)
-    .then(getGifStyles);
+    .then(getGifStyles)
+    .catch(error => {
+      errorText.textContent = 'Couldn\'t find any gifs...'
+      errorText.style.color = 'red';
+      console.error('An error occurred:', error);
+    });
 }
 
 function getGifStyles() {
