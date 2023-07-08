@@ -8,65 +8,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/1defe17cdd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- <header>
-    <div>
-      <p>About</p>
-      <p>Store</p>
+  <main>
+    <div class="wrapper">
+      <div class="heading">
+        <span id="first-letter" style="color: rgb(0, 123, 255);">G</span>
+        <span style="color: rgb(255, 30, 0);">i</span>
+        <span style="color: rgb(255, 191, 0);">f</span>
+        <span style="color: rgb(0, 123, 255);">g</span>
+        <span style="color: rgb(0, 155, 21);">l</span>
+        <span style="color: rgb(255, 30, 0);">e</span>
+      </div>
+      <div id="controls">
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+        <input type="text">
+        <button>Gif Me</button>
+      </div>
     </div>
-    <div>
-      <p>Gmail</p>
-      <p>Images</p>
-    </div>
-  </header> -->
-  <div class="wrapper">
-    <div class="heading">
-      <span id="first-letter" style="color: rgb(0, 123, 255);">G</span>
-      <span style="color: rgb(255, 30, 0);">i</span>
-      <span style="color: rgb(255, 191, 0);">f</span>
-      <span style="color: rgb(0, 123, 255);">g</span>
-      <span style="color: rgb(0, 155, 21);">l</span>
-      <span style="color: rgb(255, 30, 0);">e</span>
-    </div>
-    <div id="controls">
-      <input type="text">
-      <button>Gif Me</button>
-    </div>
-  </div>
-  <img src="#">
+    <img src="#">
+  </main>
 
-  <script>
-    const img = document.querySelector('img');
-    const button = document.querySelector('button');
-    const search = document.querySelector('input');
-    const div = document.querySelector('.wrapper');
-    const controls = document.querySelector('#controls');
-    const spans = document.querySelectorAll('span');
-    const first = document.querySelector('#first-letter');
-    const heading = document.querySelector('.heading');
-    let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
-
-    button.addEventListener('click', () => {
-      if (search.value === '') return;
-      url = `https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=${search.value}`;
-      fetch(url, { mode: 'cors' })
-        .then(response => response.json())
-        .then(response => img.src = response.data.images.original.url)
-        .then(landscape);
-    })
-    function landscape() {
-      img.style.display = 'block';
-      spans.forEach(span => span.style.fontSize = '40px');
-      first.style.fontSize = '50px';
-      div.style.cssText = 'flex-direction:row';
-      controls.style.cssText = 'margin-top:15px; flex-direction: row;'
-    }
-    heading.addEventListener('click', () => {
-      location.reload();
-    })
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
