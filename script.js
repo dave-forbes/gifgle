@@ -6,7 +6,6 @@ const controls = document.querySelector('#controls');
 const spans = document.querySelectorAll('span');
 const first = document.querySelector('#first-letter');
 const heading = document.querySelector('.heading');
-const main = document.querySelector('main');
 const body = document.querySelector('body');
 const icon = document.querySelector('i');
 let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
@@ -36,6 +35,7 @@ function getGifStyles() {
     icon.style.left = '65px';
   }
 }
+
 heading.addEventListener('click', () => {
   location.reload();
 })
