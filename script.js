@@ -7,7 +7,7 @@ const spans = document.querySelectorAll('span');
 const first = document.querySelector('#first-letter');
 const heading = document.querySelector('.heading');
 const body = document.querySelector('body');
-const icon = document.querySelector('i');
+const icon = document.querySelector('#controls>i');
 const errorText = document.querySelector('#error')
 let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
 
