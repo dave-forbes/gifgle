@@ -32,6 +32,8 @@ function getGifStyles() {
   img.style.display = 'block';
   spans.forEach(span => span.style.fontSize = '40px');
   first.style.fontSize = '50px';
+  div.style.cssText = 'margin-bottom: -50px;';
+
 
   if (body.clientWidth > 800) {
     div.style.cssText = 'flex-direction:row; justify-content: center;';
