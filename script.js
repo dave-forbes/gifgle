@@ -11,15 +11,19 @@ const body = document.querySelector('body');
 const icon = document.querySelector('i');
 let url = 'https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=';
 
-button.addEventListener('click', () => {
+button.addEventListener('click', getGif);
+
+function getGif() {
   if (search.value === '') return;
   url = `https://api.giphy.com/v1/gifs/translate?api_key=HoD2pa83gqhBgOyTwrRksdv4jRni17Mv&s=${search.value}`;
   fetch(url, { mode: 'cors' })
     .then(response => response.json())
     .then(response => img.src = response.data.images.original.url)
-    .then(landscape);
-})
-function landscape() {
+    .then(getGifStyles);
+}
+
+function getGifStyles() {
+
   img.style.display = 'block';
   spans.forEach(span => span.style.fontSize = '40px');
   first.style.fontSize = '50px';
