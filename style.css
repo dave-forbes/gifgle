@@ -10,10 +10,8 @@ img {
 }
 
 body {
-  width: 100vw;
   height: 100vh;
   margin: 0;
-  padding: 0
 }
 
 main {
@@ -21,8 +19,8 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
   height: 100%;
+  gap: 30px;
 }
 
 span {
@@ -38,8 +36,7 @@ span {
 input {
   border-radius: 20px;
   border: solid 1px lightgray;
-  width: min(600px, 80vw);
-  font-size: 2vh;
+  width: min(600px, 77vw);
   padding: 10px 10px 10px 50px;
 }
 
@@ -58,7 +55,7 @@ i {
 
 button {
   border: none;
-  background-color: rgba(249, 249, 249, 0.778);
+  background-color: rgb(243 243 243 / 78%);
   border-radius: 5px;
   width: 20%;
   font-size: 1.8vh;
@@ -75,7 +72,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .heading {
