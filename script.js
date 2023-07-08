@@ -29,7 +29,7 @@ function getGifStyles() {
 
   if (body.clientWidth > 800) {
     div.style.cssText = 'flex-direction:row; justify-content: center;';
-    controls.style.cssText = 'flex-direction: row;'
+    controls.style.cssText = 'flex-direction: row; padding-top: 21px;'
     icon.style.top = '0px';
     icon.style.right = '0px';
     icon.style.left = '65px';
