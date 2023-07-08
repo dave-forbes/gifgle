@@ -1,4 +1,4 @@
-# Calculator
+# Gifgle
 
 From Odin Project lesson on asynchronous javascript, expanded upon follow along example.
 
